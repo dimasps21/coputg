@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Web</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" href="/static/images/icons.svg">
+</head>
+<body>
+    <div id="app" class="app">
+        <!-- Левая панель - Чаты -->
+        <div class="left-panel">
+            <div class="header">
+                <div class="menu-btn" id="menuBtn">
+                    <svg viewBox="0 0 24 24" class="icon">
+                        <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
+                    </svg>
+                </div>
+                <div class="search-box">
+                    <input type="text" placeholder="Поиск" id="searchInput">
+                </div>
+                <div class="header-actions">
+                    <button class="btn-icon" id="newChatBtn">
+                        <svg viewBox="0 0 24 24" class="icon"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="chats-list" id="chatsList">
+                <!-- Чаты будут добавлены JS -->
+            </div>
+        </div>
+
+        <!-- Центральная панель - Профиль/чат -->
+        <div class="center-panel">
+            <div class="profile-placeholder" id="profilePlaceholder">
+                <div class="welcome">
+                    <div class="welcome-icon">✨</div>
+                    <h1>Telegram Web</h1>
+                    <p>Выберите чат чтобы начать</p>
+                </div>
+            </div>
+            <div class="chat-placeholder" id="chatPlaceholder" style="display: none;">
+                <!-- Контент чата -->
+            </div>
+            <div class="chat-interface" id="chatInterface" style="display: none;">
+    <div class="chat-header" id="chatHeader"></div>
+    <div class="chat-messages" id="chatMessages"></div>
+    <div class="message-input-container">
+        <textarea class="message-input" id="messageInput" 
+                  placeholder="Сообщение..." rows="1"></textarea>
+        <button class="send-btn" id="sendBtn">
+            <svg viewBox="0 0 24 24" class="icon">
+                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+            </svg>
+        </button>
+    </div>
+</div>
+
+        </div>
+
+        <!-- Правый сайдбар - Инфо чата -->
+        <div class="right-panel" id="rightPanel">
+            <div class="right-panel-content">
+                <div class="user-info-placeholder">
+                    <div class="avatar-placeholder"></div>
+                    <h3>Информация о чате</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно нового чата -->
+    <div class="modal" id="newChatModal">
+        <div class="modal-content">
+            <h3>Новый чат</h3>
+            <input type="text" id="newChatName" placeholder="Название чата">
+            <div class="modal-actions">
+                <button id="cancelNewChat">Отмена</button>
+                <button id="createNewChat">Создать</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/store.js"></script>
+    <script src="/static/js/ui.js"></script>
+    <script src="/static/js/chat.js"></script>
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

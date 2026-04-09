@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:13 # Вы можете выбрать другую версию PostgreSQL
+    restart: always
+    environment:
+      POSTGRES_DB: mydatabase # Имя вашей базы данных
+      POSTGRES_USER: myuser     # Имя пользователя базы данных
+      POSTGRES_PASSWORD: mypassword # Пароль для пользователя базы данных
+    ports:
+      - "5432:5432" # Пробрасываем порт базы данных наружу (необязательно, но удобно для локальной разработки)
+    volumes:
+      - db_data:/var/lib/postgresql/data # Сохраняем данные базы данных при перезапуске контейнера
+
+volumes:
+  db_data:
